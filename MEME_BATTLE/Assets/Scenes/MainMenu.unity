@@ -248,17 +248,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b24529bddc14651439f9ea6fa6e4b1fa, type: 3}
---- !u!114 &178436865 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2665463731965618780, guid: b24529bddc14651439f9ea6fa6e4b1fa, type: 3}
-  m_PrefabInstance: {fileID: 400386447}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &241714167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1724,76 +1713,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1298510147 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7810001378788673128, guid: b24529bddc14651439f9ea6fa6e4b1fa, type: 3}
-  m_PrefabInstance: {fileID: 400386447}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1432177320
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1432177323}
-  - component: {fileID: 1432177322}
-  - component: {fileID: 1432177321}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!143 &1432177321
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432177320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1432177322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432177320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088e646cdc4cdef4898de4b815f02292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
-  movementSpeed: 5
---- !u!4 &1432177323
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432177320}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485043038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,11 +1823,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f80a06480d2b024e8bd7f5ccdf6e7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpAction: {fileID: -7528738865705638776, guid: 299ec207cec8c1940bc4017f56a7e68e, type: 3}
-  playerController: {fileID: 0}
-  bindingDisplayNameText: {fileID: 178436865}
-  startRebindObject: {fileID: 1298510147}
-  waitingForInputObject: {fileID: 1940372082}
+  inputAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!4 &1572710070
 Transform:
   m_ObjectHideFlags: 0
@@ -2013,11 +1936,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1940372082 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4525322444131859786, guid: b24529bddc14651439f9ea6fa6e4b1fa, type: 3}
-  m_PrefabInstance: {fileID: 400386447}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1948548225
 GameObject:
   m_ObjectHideFlags: 0
