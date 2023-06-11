@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Loader : MonoBehaviour
 {
+	private InputManager _inputManager;
 	void Start()
 	{
+		_inputManager = new InputManager();
+		_inputManager.SetDefault();
 		SceneManager.LoadScene("MainMenu");
 	}
 }

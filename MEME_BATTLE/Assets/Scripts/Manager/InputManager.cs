@@ -11,18 +11,12 @@ public enum EKey
 	Action1,
 	Cnt
 }
-public class InputManager : Singleton<InputManager>
+public class InputManager : Singleton_NM<InputManager>
 {
 	public static Dictionary<EKey, KeyCode> Player01 = new Dictionary<EKey, KeyCode>();
 	public static Dictionary<EKey, KeyCode> Player02 = new Dictionary<EKey, KeyCode>();
 
-    protected override void Awake()
-    {
-		base.Awake();
-        SetDefault();
-    }
-
-    public void SetDefault()
+	public void SetDefault()
 	{
 		Player01.Add(EKey.Left, KeyCode.A);
 		Player01.Add(EKey.Right, KeyCode.D);
@@ -31,13 +25,23 @@ public class InputManager : Singleton<InputManager>
 		Player02.Add(EKey.Left, KeyCode.LeftArrow);
 		Player02.Add(EKey.Right, KeyCode.RightArrow);
 		Player02.Add(EKey.Jump, KeyCode.UpArrow);
-		Player02.Add(EKey.Action1, KeyCode.RightArrow);
+		Player02.Add(EKey.Action1, KeyCode.RightControl);
 	}
-
+	
+	public KeyCode GetInput(EKey key, bool player)
+	{
+		Dictionary<EKey, KeyCode> op = player ? Player01 : Player02;
+		
+		if (op.Count == 0)
+			SetDefault();
+		return op[key];
+	}
 	public void SetInput(EKey key, KeyCode code, bool player)
 	{
 		Dictionary<EKey, KeyCode> op = player ? Player01 : Player02;
 
+		if (op.Count == 0)
+			SetDefault();
 		if (!op.ContainsKey(key))
 			return;
 		op[key] = code;
