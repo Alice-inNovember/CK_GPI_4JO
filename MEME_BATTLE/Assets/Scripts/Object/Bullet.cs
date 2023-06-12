@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     #region .
     [SerializeField]
     private float speed;
+    [SerializeField]
     private float attackPower;
     private Vector3 targetPos;
     #endregion
@@ -18,7 +19,7 @@ public class Bullet : MonoBehaviour
     #region .
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Wall"))
+        if (collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Player"))
         {
             if (collision.transform.CompareTag("Player"))
             {

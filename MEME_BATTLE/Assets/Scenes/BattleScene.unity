@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 302496821}
-  - component: {fileID: 302496822}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -155,18 +154,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &302496822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302496819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d386c1acc306e48845dd3f891d6a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &360831775
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,8 +258,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360831775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.1, y: -10.1, z: 0}
-  m_LocalScale: {x: 19.793097, y: 3.9116776, z: 1}
+  m_LocalPosition: {x: 9.2393, y: -10.1, z: 0}
+  m_LocalScale: {x: 33.51367, y: 3.9116776, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -484,7 +471,7 @@ GameObject:
   - component: {fileID: 572523175}
   - component: {fileID: 572523174}
   - component: {fileID: 572523173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall2
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -873,7 +860,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -962,12 +949,12 @@ MonoBehaviour:
   player: {fileID: 1511698737}
   rigid: {fileID: 1511698732}
   moveSpeed: 5
-  jumpForce: 5
+  jumpForce: 20
   groundBox: {x: 1.5, y: 0.05}
   groundRayDistance: 0.77
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &1511698737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,8 +968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  meme: {fileID: 0}
-  skill: {fileID: 0}
+  meme: {fileID: 11400000, guid: fde81aea09ff238498ee11916e84c270, type: 2}
+  skill: {fileID: 11400000, guid: b727d0c02e4b3d14fbb6a22df266dc84, type: 2}
   life: 3
   atk: 1
   weight: 1
@@ -1214,7 +1201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873224221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.76, y: 0.27, z: 0}
+  m_LocalPosition: {x: -0.48, y: -0.3, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1237,12 +1224,12 @@ MonoBehaviour:
   player: {fileID: 1873224228}
   rigid: {fileID: 1873224223}
   moveSpeed: 5
-  jumpForce: 5
+  jumpForce: 20
   groundBox: {x: 1.5, y: 0.05}
   groundRayDistance: 0.77
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &1873224228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,8 +1243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  meme: {fileID: 0}
-  skill: {fileID: 0}
+  meme: {fileID: 11400000, guid: 446bc28b121dde941995113f7d9f56c3, type: 2}
+  skill: {fileID: 11400000, guid: b727d0c02e4b3d14fbb6a22df266dc84, type: 2}
   life: 3
   atk: 1
   weight: 1

@@ -16,7 +16,7 @@ public class InputManager : Singleton_NM<InputManager>
 	public static Dictionary<EKey, KeyCode> Player01 = new Dictionary<EKey, KeyCode>();
 	public static Dictionary<EKey, KeyCode> Player02 = new Dictionary<EKey, KeyCode>();
 
-	public void SetDefault()
+    public void SetDefault()
 	{
 		Player01.Add(EKey.Left, KeyCode.A);
 		Player01.Add(EKey.Right, KeyCode.D);
