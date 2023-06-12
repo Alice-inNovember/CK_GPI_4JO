@@ -25,7 +25,7 @@ public class InputManager : Singleton_NM<InputManager>
 		Player02.Add(EKey.Left, KeyCode.LeftArrow);
 		Player02.Add(EKey.Right, KeyCode.RightArrow);
 		Player02.Add(EKey.Jump, KeyCode.UpArrow);
-		Player02.Add(EKey.Action1, KeyCode.RightControl);
+		Player02.Add(EKey.Action1, KeyCode.RightShift);
 	}
 	
 	public KeyCode GetInput(EKey key, bool player)

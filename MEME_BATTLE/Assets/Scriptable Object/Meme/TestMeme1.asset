@@ -15,5 +15,5 @@ MonoBehaviour:
   memeName: "\uBC081"
   sprite: {fileID: 0}
   life: 3
-  attackPower: 1
+  attackPower: 5
   weight: 1

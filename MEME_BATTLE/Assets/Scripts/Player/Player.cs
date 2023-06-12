@@ -122,5 +122,6 @@ public class Player : MonoBehaviour
     public void AddLife(byte value) => life += value;
     public void RemoveLife(byte value) => life -= value;
     public void AddAttack(int value) => atk += value;
+    public void AddHitCount(int value) => hitCount += value;
     #endregion
 }

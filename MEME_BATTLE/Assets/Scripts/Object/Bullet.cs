@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
     #region .
     [SerializeField]
     private float speed;
-    [SerializeField]
     private float attackPower;
     private Vector3 targetPos;
     #endregion
@@ -26,14 +25,21 @@ public class Bullet : MonoBehaviour
                 if (collision.gameObject.TryGetComponent(out Rigidbody2D rb))
                 {
                     Vector2 knockBackDirection = (collision.transform.position - transform.position).normalized;
-                    Debug.Log(attackPower);
                     rb.AddForce(knockBackDirection * attackPower, ForceMode2D.Impulse);
+                    if (collision.TryGetComponent(out Player player))
+                    {
+                        player.AddHitCount(1);
+                    }
                 }
                 else
                 {
                     collision.gameObject.AddComponent<Rigidbody2D>();
                     Vector2 knockBackDirection = (collision.transform.position - transform.position).normalized;
                     rb.AddForce(knockBackDirection * attackPower, ForceMode2D.Impulse);
+                    if (collision.TryGetComponent(out Player player))
+                    {
+                        player.AddHitCount(1);
+                    }
                 }
             }
 
