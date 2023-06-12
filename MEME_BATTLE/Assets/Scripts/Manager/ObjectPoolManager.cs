@@ -46,7 +46,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     ***********************************************************************/
     #region .
     /// <summary>
-    /// Ç®¸µÇÒ ¿ÀºêÁ§Æ® °³¼ö¸¸Å­ Dictionary »ı¼º ¹× ¿ÀºêÁ§Æ® µî·Ï
+    /// í’€ë§í•  ì˜¤ë¸Œì íŠ¸ ê°œìˆ˜ë§Œí¼ Dictionary ìƒì„± ë° ì˜¤ë¸Œì íŠ¸ ë“±ë¡
     /// </summary>
     private void Init()
     {
@@ -64,10 +64,10 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     }
 
     /// <summary>
-    /// ¿ÀºêÁ§Æ® µî·Ï ÇÔ¼ö
-    /// Pool Object¸¶´Ù ºÎ¸ğ ¿ÀºêÁ§Æ®¸¦ ¸¸µé¾î ³»ºÎ¿¡ initObjectCount¸¸Å­ »ı¼º
+    /// ì˜¤ë¸Œì íŠ¸ ë“±ë¡ í•¨ìˆ˜
+    /// Pool Objectë§ˆë‹¤ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸ë¥¼ ë§Œë“¤ì–´ ë‚´ë¶€ì— initObjectCountë§Œí¼ ìƒì„±
     /// </summary>
-    /// <param name="data">»ı¼ºÇÒ Ç®ÀÇ µ¥ÀÌÅÍ</param>
+    /// <param name="data">ìƒì„±í•  í’€ì˜ ë°ì´í„°</param>
     private void RegisterObject(PoolObjectData data)
     {
         if (objectDic.ContainsKey(data.key))
@@ -100,9 +100,9 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     ***********************************************************************/
     #region .
     /// <summary>
-    /// ¿ÀºêÁ§Æ® º¹»ç
+    /// ì˜¤ë¸Œì íŠ¸ ë³µì‚¬
     /// </summary>
-    /// <param name="key">º¹»çÇÒ Pool ObjectÀÇ Key</param>
+    /// <param name="key">ë³µì‚¬í•  Pool Objectì˜ Key</param>
     /// <returns></returns>
     private GameObject Clone(KeyType key)
     {
@@ -111,7 +111,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         return Instantiate(data.prefab);
     }
 
-    /// <param name="key">²¨³»¿Ã Pool ObjectÀÇ Key</param>
+    /// <param name="key">êº¼ë‚´ì˜¬ Pool Objectì˜ Key</param>
     /// <returns></returns>
     public GameObject Spawn(KeyType key)
     {
@@ -161,9 +161,9 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     }
 
     /// <summary>
-    /// »ç¿ëÀÌ ³¡³­ Pool Object¸¦ ´Ù½Ã Pool¿¡ ³ÖÀ½
+    /// ì‚¬ìš©ì´ ëë‚œ Pool Objectë¥¼ ë‹¤ì‹œ Poolì— ë„£ìŒ
     /// </summary>
-    /// <param name="key">Pool ObjectÀÇ Key</param>
+    /// <param name="key">Pool Objectì˜ Key</param>
     /// <param name="obj">Pooling Object</param>
     public void Despawn(KeyType key, GameObject obj)
     {
