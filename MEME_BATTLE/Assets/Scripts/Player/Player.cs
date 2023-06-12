@@ -98,6 +98,8 @@ public class Player : MonoBehaviour
     #region .
     private void Initialize()
     {
+        if (GameSettings.First_PlayerSetting == null || GameSettings.Second_PlayerSetting == null) return;
+
         if (type == PlayerType.First_Player)
         {
             meme = GameSettings.First_PlayerSetting.Meme;
@@ -120,5 +122,6 @@ public class Player : MonoBehaviour
     public void AddLife(byte value) => life += value;
     public void RemoveLife(byte value) => life -= value;
     public void AddAttack(int value) => atk += value;
+    public void AddHitCount(int value) => hitCount += value;
     #endregion
 }
