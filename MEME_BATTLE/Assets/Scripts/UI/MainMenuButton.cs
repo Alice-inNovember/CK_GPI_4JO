@@ -32,11 +32,17 @@ public class MainMenuButton : MonoBehaviour
     {
         creditPenal.SetActive(false);
     }
+    public void ExitGameB()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
 
     public void StartB()
     {
-        SceneManager.LoadScene("PlayerSettingScene");
+        SceneManager.LoadScene("Scenes/PlayerSettingScene");
     }
-    
-    
 }
