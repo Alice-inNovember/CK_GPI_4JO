@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877e089eb7464bc44a421c6c38c7557f, type: 3}
-  m_Name: TestMeme3
+  m_Script: {fileID: 11500000, guid: 207a707fa1f888b41b1ee586ddba005e, type: 3}
+  m_Name: AddJumpForce
   m_EditorClassIdentifier: 
-  memeName: "\uBC083"
+  skillName: "\uC810\uD504\uB825 \uC99D\uAC00"
   sprite: {fileID: 0}
-  life: 3
-  attackPower: 3
-  weight: 3
+  type: 0
+  value: 10

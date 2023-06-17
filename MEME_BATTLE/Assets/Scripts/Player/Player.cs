@@ -31,6 +31,12 @@ public class Player : MonoBehaviour
     *                             Private Fields
     ***********************************************************************/
     #region .
+    [Header("Player Components")]
+    [SerializeField]
+    private SpriteRenderer sr;
+    [SerializeField]
+    private PlayerMovement pm;
+
     [Header("Player Infos")]
     [SerializeField]
     private PlayerType type;
@@ -104,11 +110,13 @@ public class Player : MonoBehaviour
         {
             meme = GameSettings.First_PlayerSetting.Meme;
             skill = GameSettings.First_PlayerSetting.Skill;
+            sr.sprite = GameSettings.First_PlayerSetting.Meme.sprite;
         }
         else
         {
             meme = GameSettings.Second_PlayerSetting.Meme;
             skill = GameSettings.Second_PlayerSetting.Skill;
+            sr.sprite = GameSettings.Second_PlayerSetting.Meme.sprite;
         }
 
         hitCount = 0;
@@ -122,6 +130,8 @@ public class Player : MonoBehaviour
     public void AddLife(byte value) => life += value;
     public void RemoveLife(byte value) => life -= value;
     public void AddAttack(int value) => atk += value;
+    public void AddJumpForce(int value) => pm.AddJumpForce(value);
+    public void AddMoveSpeed(int value) => pm.AddMoveSpeed(value);
     public void AddHitCount(int value) => hitCount += value;
     #endregion
 }

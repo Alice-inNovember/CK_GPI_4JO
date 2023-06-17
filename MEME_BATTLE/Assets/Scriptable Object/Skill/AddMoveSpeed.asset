@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877e089eb7464bc44a421c6c38c7557f, type: 3}
-  m_Name: TestMeme1
+  m_Script: {fileID: 11500000, guid: b78341e8ea1a35b40840e7692771fe80, type: 3}
+  m_Name: AddMoveSpeed
   m_EditorClassIdentifier: 
-  memeName: "\uBC081"
+  skillName: "\uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
   sprite: {fileID: 0}
-  life: 3
-  attackPower: 5
-  weight: 1
+  type: 0
+  value: 5

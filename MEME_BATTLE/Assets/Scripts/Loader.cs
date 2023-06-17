@@ -10,6 +10,5 @@ public class Loader : MonoBehaviour
 	{
 		_inputManager = new InputManager();
 		_inputManager.SetDefault();
-		SceneManager.LoadScene("BattleScene");
 	}
 }

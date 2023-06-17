@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 877e089eb7464bc44a421c6c38c7557f, type: 3}
-  m_Name: TestMeme2
+  m_Name: Pepe
   m_EditorClassIdentifier: 
-  memeName: "\uBC082"
-  sprite: {fileID: 0}
+  memeName: "\uD398\uD398"
+  sprite: {fileID: 21300000, guid: 2bd3a342e9331f04592684b65cba05c9, type: 3}
   life: 3
-  attackPower: 2
-  weight: 2
+  attackPower: 5
+  weight: 1
