@@ -23,5 +23,5 @@ public class SkillButton : MonoBehaviour
     }
 
     public void OnButton() => button.image.color = new Color(255, 255, 255, 255);
-    public void OffButton() => button.image.color = new Color(255, 255, 255, 0.5f);
+    public void OffButton() => button.image.color = new Color(255, 255, 255, 0.3f);
 }

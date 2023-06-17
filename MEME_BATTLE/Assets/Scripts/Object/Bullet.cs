@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     private float speed;
     private float attackPower;
     private Vector3 targetPos;
+    private Player actPlayer;
     #endregion
 
     /***********************************************************************
@@ -28,7 +29,7 @@ public class Bullet : MonoBehaviour
                     rb.AddForce(knockBackDirection * attackPower, ForceMode2D.Impulse);
                     if (collision.TryGetComponent(out Player player))
                     {
-                        player.AddHitCount(1);
+                        actPlayer.AddHitCount(1);
                     }
                 }
                 else
@@ -38,7 +39,7 @@ public class Bullet : MonoBehaviour
                     rb.AddForce(knockBackDirection * attackPower, ForceMode2D.Impulse);
                     if (collision.TryGetComponent(out Player player))
                     {
-                        player.AddHitCount(1);
+                        actPlayer.AddHitCount(1);
                     }
                 }
             }
@@ -63,6 +64,7 @@ public class Bullet : MonoBehaviour
         if (hitCount <= 0) hitCount = 1;
         attackPower = (player.Atk * hitCount) / player.Weight;
         targetPos = target.position;
+        actPlayer = player;
     }
 
     public void Move()

@@ -11,6 +11,8 @@ public class MemeButton : MonoBehaviour
     private MemeCharacter meme;
     [SerializeField]
     private Button button;
+    [SerializeField]
+    private GameObject focus;
 
     public MemeCharacter Meme => meme;
     public PlayerType Type => type;
@@ -22,6 +24,6 @@ public class MemeButton : MonoBehaviour
         OffButton();
     }
     
-    public void OnButton() => button.image.color = new Color(255, 255, 255, 1);
-    public void OffButton() => button.image.color = new Color(255, 255, 255, 0.5f);
+    public void OnButton() => focus.SetActive(true);
+    public void OffButton() => focus.SetActive(false);
 }

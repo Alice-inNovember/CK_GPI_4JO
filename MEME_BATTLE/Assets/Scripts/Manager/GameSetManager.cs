@@ -23,9 +23,9 @@ public class GameSetManager : MonoBehaviour
     private SkillButton current_secondSkillButton;
 
     [SerializeField]
-    private GameObject firstPlayer_ReadyUI;
+    private ReadyUI firstPlayer_ReadyUI;
     [SerializeField]
-    private GameObject secondPlayer_ReadyUI;
+    private ReadyUI secondPlayer_ReadyUI;
 
     private bool firstPlayer_Ready;
     private bool secondPlayer_Ready;
@@ -54,7 +54,8 @@ public class GameSetManager : MonoBehaviour
         GameSettings.First_PlayerSetting = setting;
 
         firstPlayer_Ready = true;
-        firstPlayer_ReadyUI.SetActive(true);
+        firstPlayer_ReadyUI.gameObject.SetActive(true);
+        firstPlayer_ReadyUI.SetMeme(current_firstMemeButton.Meme.sprite);
         TryMovePlayers();
     }
 
@@ -66,7 +67,8 @@ public class GameSetManager : MonoBehaviour
         GameSettings.Second_PlayerSetting = setting;
 
         secondPlayer_Ready = true;
-        secondPlayer_ReadyUI.SetActive(true);
+        secondPlayer_ReadyUI.gameObject.SetActive(true);
+        secondPlayer_ReadyUI.SetMeme(current_secondMemeButton.Meme.sprite);
         TryMovePlayers();
     }
 

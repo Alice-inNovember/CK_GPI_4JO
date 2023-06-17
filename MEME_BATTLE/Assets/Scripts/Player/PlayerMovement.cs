@@ -75,13 +75,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (player.Type == 0)
         {
+            if (Input.GetKeyUp(InputManager.Player01[EKey.Left]) || Input.GetKeyUp(InputManager.Player01[EKey.Right]))
+            {
+                rigid.velocity = new Vector2(0, rigid.velocity.y);
+            }
+
             if (Input.GetKey(InputManager.Player01[EKey.Left]))
             {
-                transform.position += new Vector3(-1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                rigid.velocity = new Vector3(-1 * moveSpeed, rigid.velocity.y);
             }
             if (Input.GetKey(InputManager.Player01[EKey.Right]))
             {
-                transform.position += new Vector3(1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                rigid.velocity = new Vector3(1 * moveSpeed, rigid.velocity.y);
             }
             if (Input.GetKeyDown(InputManager.Player01[EKey.Jump]))
             {
@@ -90,13 +95,18 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            if (Input.GetKeyUp(InputManager.Player02[EKey.Left]) || Input.GetKeyUp(InputManager.Player02[EKey.Right]))
+            {
+                rigid.velocity = new Vector2(0, rigid.velocity.y);
+            }
+
             if (Input.GetKey(InputManager.Player02[EKey.Left]))
             {
-                transform.position += new Vector3(-1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                rigid.velocity = new Vector3(-1 * moveSpeed, rigid.velocity.y);
             }
             if (Input.GetKey(InputManager.Player02[EKey.Right]))
             {
-                transform.position += new Vector3(1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                rigid.velocity = new Vector3(1 * moveSpeed, rigid.velocity.y);
             }
             if (Input.GetKeyDown(InputManager.Player02[EKey.Jump]))
             {
@@ -104,5 +114,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    /***********************************************************************
+    *                             Public Methods
+    ***********************************************************************/
+    #region .
+    public void AddJumpForce(int value) => jumpForce += value;
+    public void AddMoveSpeed(int value) => moveSpeed += value;
     #endregion
 }
