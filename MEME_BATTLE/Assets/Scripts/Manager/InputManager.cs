@@ -18,10 +18,12 @@ public class InputManager : Singleton_NM<InputManager>
 
     public void SetDefault()
 	{
+		if (Player01.Count != 0)
+			return;
 		Player01.Add(EKey.Left, KeyCode.A);
 		Player01.Add(EKey.Right, KeyCode.D);
 		Player01.Add(EKey.Jump, KeyCode.W);
-		Player01.Add(EKey.Action1, KeyCode.LeftControl);
+		Player01.Add(EKey.Action1, KeyCode.LeftShift);
 		Player02.Add(EKey.Left, KeyCode.LeftArrow);
 		Player02.Add(EKey.Right, KeyCode.RightArrow);
 		Player02.Add(EKey.Jump, KeyCode.UpArrow);

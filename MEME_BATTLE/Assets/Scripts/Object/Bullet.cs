@@ -8,9 +8,9 @@ public class Bullet : MonoBehaviour
     #region .
     [SerializeField]
     private float speed;
-    private float attackPower;
-    private Vector3 targetPos;
-    private Player actPlayer;
+    private float _attackPower;
+    private Vector3 _targetPos;
+    private Player _actPlayer;
     #endregion
 
     /***********************************************************************
@@ -26,20 +26,20 @@ public class Bullet : MonoBehaviour
                 if (collision.gameObject.TryGetComponent(out Rigidbody2D rb))
                 {
                     Vector2 knockBackDirection = (collision.transform.position - transform.position).normalized;
-                    rb.AddForce(knockBackDirection * attackPower, ForceMode2D.Impulse);
+                    rb.AddForce(knockBackDirection * _attackPower, ForceMode2D.Impulse);
                     if (collision.TryGetComponent(out Player player))
                     {
-                        actPlayer.AddHitCount(1);
+                        _actPlayer.AddHitCount(1);
                     }
                 }
                 else
                 {
                     collision.gameObject.AddComponent<Rigidbody2D>();
                     Vector2 knockBackDirection = (collision.transform.position - transform.position).normalized;
-                    rb.AddForce(knockBackDirection * attackPower, ForceMode2D.Impulse);
+                    rb.AddForce(knockBackDirection * _attackPower, ForceMode2D.Impulse);
                     if (collision.TryGetComponent(out Player player))
                     {
-                        actPlayer.AddHitCount(1);
+                        _actPlayer.AddHitCount(1);
                     }
                 }
             }
@@ -62,14 +62,14 @@ public class Bullet : MonoBehaviour
     {
         int hitCount = player.HitCount;
         if (hitCount <= 0) hitCount = 1;
-        attackPower = (player.Atk * hitCount) / player.Weight;
-        targetPos = target.position;
-        actPlayer = player;
+        _attackPower = (player.Atk * hitCount) / player.Weight;
+        _targetPos = target.position;
+        _actPlayer = player;
     }
 
     public void Move()
     {
-        Vector3 directionToTarget = targetPos - transform.position;
+        Vector3 directionToTarget = _targetPos - transform.position;
         float distance = directionToTarget.magnitude;
 
         if (distance <= speed * Time.deltaTime)

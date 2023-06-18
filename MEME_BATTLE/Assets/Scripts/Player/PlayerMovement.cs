@@ -44,14 +44,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (rigid == null)
         {
-            TryGetComponent(out Rigidbody2D rigidbody);
-            rigid = rigidbody;
+            TryGetComponent(out Rigidbody2D component);
+            rigid = component;
         }
     }
 
     private void Update()
     {
-        OnKeyborad();
+        OnKeyboard();
     }
 
     private void OnDrawGizmos()
@@ -71,8 +71,10 @@ public class PlayerMovement : MonoBehaviour
         return GroundObj.collider != null;
     }
 
-    private void OnKeyborad()
+    private void OnKeyboard()
     {
+        if (InputManager.Player01.Count == 0)
+            new InputManager().SetDefault();
         if (player.Type == 0)
         {
             if (Input.GetKeyUp(InputManager.Player01[EKey.Left]) || Input.GetKeyUp(InputManager.Player01[EKey.Right]))

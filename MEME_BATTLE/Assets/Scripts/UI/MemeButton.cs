@@ -1,29 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MemeButton : MonoBehaviour
+namespace UI
 {
-    [SerializeField]
-    private GameSetManager gameSetManager;
-    [SerializeField]
-    private PlayerType type;
-    [SerializeField]
-    private MemeCharacter meme;
-    [SerializeField]
-    private Button button;
-    [SerializeField]
-    private GameObject focus;
-
-    public MemeCharacter Meme => meme;
-    public PlayerType Type => type;
-
-    private void Start()
+    public class MemeButton : MonoBehaviour
     {
-        if (gameSetManager == null) gameSetManager = GameObject.Find("GameSetManager").GetComponent<GameSetManager>();
-        button.onClick.AddListener(() => gameSetManager.SetMeme(this));
-        OffButton();
-    }
+        [SerializeField]
+        private GameSetManager gameSetManager;
+        [SerializeField]
+        private PlayerType type;
+        [SerializeField]
+        private MemeCharacter meme;
+        [SerializeField]
+        private Button button;
+        [SerializeField]
+        private GameObject focus;
+
+        public MemeCharacter Meme => meme;
+        public PlayerType Type => type;
+
+        private void Start()
+        {
+            if (gameSetManager == null) gameSetManager = GameObject.Find("GameSetManager").GetComponent<GameSetManager>();
+            button.onClick.AddListener(() => gameSetManager.SetMeme(this));
+            OffButton();
+        }
     
-    public void OnButton() => focus.SetActive(true);
-    public void OffButton() => focus.SetActive(false);
+        public void OnButton() => focus.SetActive(true);
+        public void OffButton() => focus.SetActive(false);
+    }
 }

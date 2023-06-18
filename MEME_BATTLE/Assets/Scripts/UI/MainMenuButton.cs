@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuButton : MonoBehaviour
 {
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider bgmSlider;
     [SerializeField] private GameObject menuPenal;
     [SerializeField] private GameObject creditPenal;
     void Start()
     {
+        sfxSlider.value = AudioManager.Instance.SfxVol;
+        bgmSlider.value = AudioManager.Instance.BgmVol;
         menuPenal.SetActive(false);
         creditPenal.SetActive(false);
     }
@@ -44,5 +49,17 @@ public class MainMenuButton : MonoBehaviour
     public void StartB()
     {
         SceneManager.LoadScene("Scenes/PlayerSettingScene");
+    }
+
+    public void SfxVolS()
+    {
+        AudioManager.Instance.SfxVol = sfxSlider.value;
+        Debug.Log(AudioManager.Instance.SfxVol);
+    }
+
+    public void BgmVolS()
+    {
+        AudioManager.Instance.BgmVol = bgmSlider.value;
+        Debug.Log(AudioManager.Instance.BgmVol);
     }
 }
