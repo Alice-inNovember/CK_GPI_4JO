@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Slider = UnityEngine.UIElements.Slider;
 
 namespace Manager
@@ -9,12 +11,18 @@ namespace Manager
         [SerializeField] private GameObject gameOverObj;
         [SerializeField] private TextMeshProUGUI gameOverText;
 
-
         [SerializeField] private GameObject p1LifeObj;
         [SerializeField] private GameObject p2LifeObj;
 
         [SerializeField] private TextMeshProUGUI p1HitCntText;
         [SerializeField] private TextMeshProUGUI p2HitCntText;
+
+        [SerializeField] private Button menuBtn;
+
+        private void Awake()
+        {
+            menuBtn.onClick.AddListener(LoadMenu);
+        }
 
         private void Start()
         {
@@ -26,9 +34,9 @@ namespace Manager
         public void SetHitCountNbr(int cnt, bool isPlayer1)
         {
             if (isPlayer1 == true)
-                p1HitCntText.text = (cnt * 23.8 - (cnt / 4.2)).ToString() + "%";
+                p1HitCntText.text = (cnt * 23.8 - (cnt / 4.2)).ToString("F2") + "%";
             else
-                p2HitCntText.text = (cnt * 23.8 - (cnt / 4.2)).ToString() + "%";
+                p2HitCntText.text = (cnt * 23.8 - (cnt / 4.2)).ToString("F2") + "%";
         }
 
         public void SetDisplayLife(int life, bool isPlayer1)
@@ -46,6 +54,13 @@ namespace Manager
             else
                 gameOverText.text = "Player " + "2" + " WIN";
             gameOverObj.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        public void LoadMenu()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

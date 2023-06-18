@@ -63,7 +63,7 @@ public class GunManager : MonoBehaviour
         {
             bullet.transform.position = firePivot.position;
             Bullet bl = bullet.GetComponent<Bullet>();
-            bl.SetValue(player, target);
+            bl.SetTarget(target);
         }
     }
     #endregion

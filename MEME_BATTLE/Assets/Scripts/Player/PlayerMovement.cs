@@ -34,6 +34,16 @@ public class PlayerMovement : MonoBehaviour
     private float groundRayDistance = 1.0f;
     [SerializeField]
     private LayerMask groundLayer;
+
+    [SerializeField]
+    private bool canMove;
+    #endregion
+
+    /***********************************************************************
+    *                             Public Fields
+    ***********************************************************************/
+    #region .
+    public bool CanMove => canMove;
     #endregion
 
     /***********************************************************************
@@ -47,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
             TryGetComponent(out Rigidbody2D component);
             rigid = component;
         }
+
+        canMove = true;
     }
 
     private void Update()
@@ -73,46 +85,45 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnKeyboard()
     {
-        if (InputManager.Player01.Count == 0)
-            new InputManager().SetDefault();
-        if (player.Type == 0)
-        {
-            if (Input.GetKeyUp(InputManager.Player01[EKey.Left]) || Input.GetKeyUp(InputManager.Player01[EKey.Right]))
-            {
-                rigid.velocity = new Vector2(0, rigid.velocity.y);
-            }
+        if (InputManager.Player01.Count == 0) new InputManager().SetDefault();
 
-            if (Input.GetKey(InputManager.Player01[EKey.Left]))
-            {
-                rigid.velocity = new Vector3(-1 * moveSpeed, rigid.velocity.y);
-            }
-            if (Input.GetKey(InputManager.Player01[EKey.Right]))
-            {
-                rigid.velocity = new Vector3(1 * moveSpeed, rigid.velocity.y);
-            }
-            if (Input.GetKeyDown(InputManager.Player01[EKey.Jump]))
-            {
-                if (IsPlayerOnGround()) rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
-            }
-        }
-        else
+        if (canMove)
         {
-            if (Input.GetKeyUp(InputManager.Player02[EKey.Left]) || Input.GetKeyUp(InputManager.Player02[EKey.Right]))
+            if (player.Type == 0)
             {
-                rigid.velocity = new Vector2(0, rigid.velocity.y);
+                if (Input.GetKey(InputManager.Player01[EKey.Left]))
+                {
+                    transform.position += new Vector3(-1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                }
+                if (Input.GetKey(InputManager.Player01[EKey.Right]))
+                {
+                    transform.position += new Vector3(1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                }
+                if (Input.GetKeyDown(InputManager.Player01[EKey.Jump]))
+                {
+                    if (IsPlayerOnGround())
+                    {
+                        rigid.velocity = Vector2.up * jumpForce;
+                    }
+                }
             }
-
-            if (Input.GetKey(InputManager.Player02[EKey.Left]))
+            else
             {
-                rigid.velocity = new Vector3(-1 * moveSpeed, rigid.velocity.y);
-            }
-            if (Input.GetKey(InputManager.Player02[EKey.Right]))
-            {
-                rigid.velocity = new Vector3(1 * moveSpeed, rigid.velocity.y);
-            }
-            if (Input.GetKeyDown(InputManager.Player02[EKey.Jump]))
-            {
-                if (IsPlayerOnGround()) rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
+                if (Input.GetKey(InputManager.Player02[EKey.Left]))
+                {
+                    transform.position += new Vector3(-1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                }
+                if (Input.GetKey(InputManager.Player02[EKey.Right]))
+                {
+                    transform.position += new Vector3(1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                }
+                if (Input.GetKeyDown(InputManager.Player02[EKey.Jump]))
+                {
+                    if (IsPlayerOnGround())
+                    {
+                        rigid.velocity = Vector2.up * jumpForce;
+                    }
+                }
             }
         }
     }
@@ -124,5 +135,6 @@ public class PlayerMovement : MonoBehaviour
     #region .
     public void AddJumpForce(int value) => jumpForce += value;
     public void AddMoveSpeed(int value) => moveSpeed += value;
+    public void SetMove(bool move) => canMove = move;
     #endregion
 }
