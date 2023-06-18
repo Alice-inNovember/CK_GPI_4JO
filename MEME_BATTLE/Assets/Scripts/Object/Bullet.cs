@@ -17,37 +17,6 @@ public class Bullet : MonoBehaviour
     *                             Unity Methods
     ***********************************************************************/
     #region .
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Player"))
-        {
-            if (collision.transform.CompareTag("Player"))
-            {
-                if (collision.gameObject.TryGetComponent(out Rigidbody2D rb))
-                {
-                    Vector2 knockBackDirection = (collision.transform.position - transform.position).normalized;
-                    rb.AddForce(knockBackDirection * _attackPower, ForceMode2D.Impulse);
-                    if (collision.TryGetComponent(out Player player))
-                    {
-                        _actPlayer.AddHitCount(1);
-                    }
-                }
-                else
-                {
-                    collision.gameObject.AddComponent<Rigidbody2D>();
-                    Vector2 knockBackDirection = (collision.transform.position - transform.position).normalized;
-                    rb.AddForce(knockBackDirection * _attackPower, ForceMode2D.Impulse);
-                    if (collision.TryGetComponent(out Player player))
-                    {
-                        _actPlayer.AddHitCount(1);
-                    }
-                }
-            }
-
-            ObjectPoolManager.Instance.Despawn("Bullet", gameObject);
-        }
-    }
-
     private void Update()
     {
         Move();
@@ -58,13 +27,9 @@ public class Bullet : MonoBehaviour
     *                             Public Methods
     ***********************************************************************/
     #region .
-    public void SetValue(Player player, Transform target)
+    public void SetTarget(Transform target)
     {
-        int hitCount = player.HitCount;
-        if (hitCount <= 0) hitCount = 1;
-        _attackPower = (player.Atk * hitCount) / player.Weight;
         _targetPos = target.position;
-        _actPlayer = player;
     }
 
     public void Move()

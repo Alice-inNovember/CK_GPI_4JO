@@ -1,3 +1,5 @@
+using Manager;
+using System.Collections;
 using UnityEngine;
 
 public enum PlayerType
@@ -36,6 +38,12 @@ public class Player : MonoBehaviour
     private SpriteRenderer sr;
     [SerializeField]
     private PlayerMovement pm;
+    [SerializeField]
+    private BattleManager bm;
+    [SerializeField]
+    private GameManager gm;
+    [SerializeField]
+    private Rigidbody2D rigid;
 
     [Header("Player Infos")]
     [SerializeField]
@@ -96,6 +104,43 @@ public class Player : MonoBehaviour
             skill.Execute(this);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Bullet"))
+        {
+            if (collision.gameObject.TryGetComponent(out Rigidbody2D rb))
+            {
+                Attack();
+            }
+            else
+            {
+                collision.gameObject.AddComponent<Rigidbody2D>();
+                Attack();
+            }
+        }
+        else if (collision.transform.CompareTag("KillWall"))
+        {
+            RemoveLife(1);
+            bm.Respawn();
+        }
+
+        void Attack()
+        {
+            Vector2 knockBackDirection = (transform.position - collision.transform.position).normalized;
+            float _attackPower = SetAttackPower();
+
+            // 넉백 힘이 일정 수치 이상 차면
+            if (_attackPower > 100)
+            {
+                bm.Respawn();
+            }
+
+            rigid.AddForce(knockBackDirection * _attackPower, ForceMode2D.Impulse);
+            AddHitCount(1);
+            ObjectPoolManager.Instance.Despawn("Bullet", collision.gameObject);
+        }
+    }
     #endregion
 
     /***********************************************************************
@@ -121,6 +166,12 @@ public class Player : MonoBehaviour
 
         hitCount = 0;
     }
+
+    private int SetAttackPower()
+    {
+        if (hitCount <= 0) hitCount = 1;
+        return (atk * hitCount) / weight;
+    }
     #endregion
 
     /***********************************************************************
@@ -128,10 +179,29 @@ public class Player : MonoBehaviour
     ***********************************************************************/
     #region .
     public void AddLife(byte value) => life += value;
-    public void RemoveLife(byte value) => life -= value;
+    public void RemoveLife(byte value)
+    {
+        life -= value;
+
+        if (life == 0)
+        {
+            gm.GameOver(type != PlayerType.First_Player);
+        }
+
+        gm.SetDisplayLife(life, type == PlayerType.First_Player);
+    }
     public void AddAttack(int value) => atk += value;
     public void AddJumpForce(int value) => pm.AddJumpForce(value);
     public void AddMoveSpeed(int value) => pm.AddMoveSpeed(value);
-    public void AddHitCount(int value) => hitCount += value;
+    public void AddHitCount(int value)
+    {
+        hitCount += value;
+        gm.SetHitCountNbr(hitCount, type == PlayerType.First_Player);
+    }
+    public void SetHitCount(int value)
+    {
+        hitCount = value;
+        gm.SetHitCountNbr(hitCount, type == PlayerType.First_Player);
+    }
     #endregion
 }

@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5745913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5745914}
+  m_Layer: 0
+  m_Name: Player1 Respawn Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5745914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &234365050
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +306,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -485,6 +516,7 @@ MonoBehaviour:
   p2LifeObj: {fileID: 305972473}
   p1HitCntText: {fileID: 1468802334}
   p2HitCntText: {fileID: 1968032132}
+  menuBtn: {fileID: 2060584800}
 --- !u!114 &322962482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,7 +921,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1829,7 +1861,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2506,7 +2538,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2776,7 +2808,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1511698730}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 970b6cd5a1ed0be459507880e662e565, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2897,12 +2929,13 @@ MonoBehaviour:
   player: {fileID: 1511698737}
   rigid: {fileID: 1511698732}
   moveSpeed: 15
-  jumpForce: 40
+  jumpForce: 20
   groundBox: {x: 1.5, y: 0.05}
   groundRayDistance: 0.85
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  canMove: 0
 --- !u!114 &1511698737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2917,6 +2950,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 1511698733}
   pm: {fileID: 1511698736}
+  bm: {fileID: 1688427204}
+  gm: {fileID: 322962481}
+  rigid: {fileID: 1511698732}
   type: 0
   meme: {fileID: 11400000, guid: fde81aea09ff238498ee11916e84c270, type: 2}
   skill: {fileID: 11400000, guid: 630705fbf7fd65c409021b502d5b3b9c, type: 2}
@@ -3165,6 +3201,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!1 &1663802122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663802123}
+  m_Layer: 0
+  m_Name: Player2 Respawn Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663802123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663802122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 10, z: -0.2207633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673009916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,6 +3262,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 673625427}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1688427203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688427205}
+  - component: {fileID: 1688427204}
+  m_Layer: 0
+  m_Name: Battle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1688427204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688427203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0488a8cb3094b724b810355677fddaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player01: {fileID: 1511698737}
+  player02: {fileID: 1873224228}
+  p1SpawnPos: {fileID: 5745914}
+  p2SpawnPos: {fileID: 1663802123}
+--- !u!4 &1688427205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688427203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.58145475, y: -2.253263, z: -0.2207633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779396369
 GameObject:
@@ -3310,7 +3425,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1873224221}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 970b6cd5a1ed0be459507880e662e565, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3431,12 +3546,13 @@ MonoBehaviour:
   player: {fileID: 1873224228}
   rigid: {fileID: 1873224223}
   moveSpeed: 15
-  jumpForce: 40
+  jumpForce: 20
   groundBox: {x: 1.5, y: 0.05}
   groundRayDistance: 0.85
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  canMove: 0
 --- !u!114 &1873224228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3451,6 +3567,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 1873224224}
   pm: {fileID: 1873224227}
+  bm: {fileID: 1688427204}
+  gm: {fileID: 322962481}
+  rigid: {fileID: 1873224223}
   type: 1
   meme: {fileID: 11400000, guid: 446bc28b121dde941995113f7d9f56c3, type: 2}
   skill: {fileID: 11400000, guid: 630705fbf7fd65c409021b502d5b3b9c, type: 2}
@@ -3847,19 +3966,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2060584801}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 322962482}
-        m_TargetAssemblyTypeName: UI.BattleSceneButton, Assembly-CSharp
-        m_MethodName: MainMenuB
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2060584801
 MonoBehaviour:
   m_ObjectHideFlags: 0
