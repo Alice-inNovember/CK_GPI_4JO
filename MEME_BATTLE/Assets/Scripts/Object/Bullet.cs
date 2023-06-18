@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     ***********************************************************************/
     #region .
     [SerializeField]
-    private float speed;
+    private float speed = 50;
     private float _attackPower;
     private Vector3 _targetPos;
     private Player _actPlayer;
@@ -23,6 +23,10 @@ public class Bullet : MonoBehaviour
     }
     #endregion
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ObjectPoolManager.Instance.Despawn("Bullet", this.gameObject);
+    }
     /***********************************************************************
     *                             Public Methods
     ***********************************************************************/

@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
     {
         Initialize();
 
-        // Scriptable ObjectÀÇ °ª ´ëÀÔ
+        // Scriptable Objectï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         life = meme.life;
         atk = meme.attackPower;
         weight = meme.weight;
@@ -122,6 +122,7 @@ public class Player : MonoBehaviour
         else if (collision.transform.CompareTag("KillWall"))
         {
             RemoveLife(1);
+            this.rigid.velocity = new Vector2(0, 0);
             bm.Respawn();
         }
 
@@ -130,15 +131,14 @@ public class Player : MonoBehaviour
             Vector2 knockBackDirection = (transform.position - collision.transform.position).normalized;
             float _attackPower = SetAttackPower();
 
-            // ³Ë¹é ÈûÀÌ ÀÏÁ¤ ¼öÄ¡ ÀÌ»ó Â÷¸é
             if (_attackPower > 100)
             {
+                this.rigid.velocity = new Vector2(0, 0);
                 bm.Respawn();
             }
 
             rigid.AddForce(knockBackDirection * _attackPower, ForceMode2D.Impulse);
             AddHitCount(1);
-            ObjectPoolManager.Instance.Despawn("Bullet", collision.gameObject);
         }
     }
     #endregion

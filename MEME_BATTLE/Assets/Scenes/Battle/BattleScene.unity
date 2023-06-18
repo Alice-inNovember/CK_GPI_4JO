@@ -2063,7 +2063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852446494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.7047305, y: -1.0165236, z: 107.0676}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2929,7 +2929,7 @@ MonoBehaviour:
   player: {fileID: 1511698737}
   rigid: {fileID: 1511698732}
   moveSpeed: 15
-  jumpForce: 20
+  jumpForce: 40
   groundBox: {x: 1.5, y: 0.05}
   groundRayDistance: 0.85
   groundLayer:
@@ -3100,7 +3100,7 @@ GameObject:
   - component: {fileID: 1662870137}
   m_Layer: 6
   m_Name: Trap
-  m_TagString: Bullet
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3184,7 +3184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d982008d5cb64a7182cbbf255fc30610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPower: 10
+  attackPower: 50
 --- !u!58 &1662870137
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3546,7 +3546,7 @@ MonoBehaviour:
   player: {fileID: 1873224228}
   rigid: {fileID: 1873224223}
   moveSpeed: 15
-  jumpForce: 20
+  jumpForce: 40
   groundBox: {x: 1.5, y: 0.05}
   groundRayDistance: 0.85
   groundLayer:
@@ -4164,8 +4164,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 668758989}
     m_Modifications:
+    - target: {fileID: 938809334935390096, guid: d4bb560bdfb95454db45243183191f21, type: 3}
+      propertyPath: attackPower
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 938809334935390100, guid: d4bb560bdfb95454db45243183191f21, type: 3}
       propertyPath: m_Name
+      value: Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 938809334935390100, guid: d4bb560bdfb95454db45243183191f21, type: 3}
+      propertyPath: m_TagString
       value: Trap
       objectReference: {fileID: 0}
     - target: {fileID: 938809334935390101, guid: d4bb560bdfb95454db45243183191f21, type: 3}

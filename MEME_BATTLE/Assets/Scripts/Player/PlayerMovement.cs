@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 5f;
     [SerializeField]
-    private float jumpForce = 5f;
+    private float jumpForce = 20f;
 
     [Header("Ground Fields")]
     [SerializeField]
@@ -93,11 +93,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (Input.GetKey(InputManager.Player01[EKey.Left]))
                 {
-                    transform.position += new Vector3(-1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                    transform.position += new Vector3(-1 * moveSpeed, 0) * Time.deltaTime;
                 }
                 if (Input.GetKey(InputManager.Player01[EKey.Right]))
                 {
-                    transform.position += new Vector3(1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                    transform.position += new Vector3(1 * moveSpeed,0) * Time.deltaTime;
                 }
                 if (Input.GetKeyDown(InputManager.Player01[EKey.Jump]))
                 {
@@ -111,11 +111,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (Input.GetKey(InputManager.Player02[EKey.Left]))
                 {
-                    transform.position += new Vector3(-1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                    transform.position += new Vector3(-1 * moveSpeed,0) * Time.deltaTime;
                 }
                 if (Input.GetKey(InputManager.Player02[EKey.Right]))
                 {
-                    transform.position += new Vector3(1 * moveSpeed, rigid.velocity.y) * Time.deltaTime;
+                    transform.position += new Vector3(1 * moveSpeed, 0) * Time.deltaTime;
                 }
                 if (Input.GetKeyDown(InputManager.Player02[EKey.Jump]))
                 {
