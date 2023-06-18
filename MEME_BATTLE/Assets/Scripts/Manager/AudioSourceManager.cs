@@ -9,4 +9,9 @@ public class AudioSourceManager : MonoBehaviour
     {
         GetComponent<AudioSource>().volume = AudioManager.Instance.BgmVol;
     }
+
+    public void SetVol()
+    {
+        GetComponent<AudioSource>().volume = AudioManager.Instance.BgmVol;
+    }
 }

@@ -10,12 +10,14 @@ public class MainMenuButton : MonoBehaviour
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private GameObject menuPenal;
     [SerializeField] private GameObject creditPenal;
+    [SerializeField] private GameObject popupPenal;
     void Start()
     {
         sfxSlider.value = AudioManager.Instance.SfxVol;
         bgmSlider.value = AudioManager.Instance.BgmVol;
         menuPenal.SetActive(false);
         creditPenal.SetActive(false);
+        popupPenal.SetActive(false);
     }
 
     public void MenuOpenB()
@@ -28,6 +30,15 @@ public class MainMenuButton : MonoBehaviour
         menuPenal.SetActive(false);
     }
     
+    public void PopUpOpenB()
+    {
+        popupPenal.SetActive(true);
+    }
+
+    public void PopUpCloseB()
+    {
+        popupPenal.SetActive(false);
+    }
     public void CreditOpenB()
     {
         creditPenal.SetActive(true);
