@@ -77,7 +77,7 @@ public class GameSetManager : MonoBehaviour
     {
         if (firstPlayer_Ready && secondPlayer_Ready)
         {
-            SceneManager.LoadScene("BattleScene");
+            SceneManager.LoadScene("Battle01");
         }
     }
     #endregion

@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
         {
             RemoveLife(1);
             this.rigid.velocity = new Vector2(0, 0);
-            bm.Respawn();
+            bm.Respawn(Type == PlayerType.First_Player);
         }
 
         void Attack()
@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
             if (_attackPower > 100)
             {
                 this.rigid.velocity = new Vector2(0, 0);
-                bm.Respawn();
+                bm.Respawn(Type == PlayerType.First_Player);
             }
 
             rigid.AddForce(knockBackDirection * _attackPower, ForceMode2D.Impulse);
