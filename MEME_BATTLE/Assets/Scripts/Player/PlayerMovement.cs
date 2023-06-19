@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (IsPlayerOnGround())
                     {
-                        rigid.velocity = Vector2.up * jumpForce;
+                        rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
                     }
                 }
             }
@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (IsPlayerOnGround())
                     {
-                        rigid.velocity = Vector2.up * jumpForce;
+                        rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
                     }
                 }
             }

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -17,12 +18,23 @@ public class GunManager : MonoBehaviour
     private Transform firePivot;
     [SerializeField]
     private float bulletSpeed;
+    [SerializeField]
+    private AudioClip gunshotSound;
+    [SerializeField]
+    private AudioSource audioSource;
+
+    private bool canShoot;
     #endregion
 
     /***********************************************************************
     *                             Unity Methods
     ***********************************************************************/
     #region .
+    private void Start()
+    {
+        canShoot = true;
+    }
+
     private void Update()
     {
         RotateTowardsTarget();
@@ -50,20 +62,25 @@ public class GunManager : MonoBehaviour
         if (player.Type == PlayerType.First_Player) key = InputManager.Player01[EKey.Action1];
         else key = InputManager.Player02[EKey.Action1];
 
-        if (Input.GetKeyDown(key))
+        if (Input.GetKeyDown(key) && canShoot)
         {
-            FireBullet();
+            StartCoroutine(FireBullet());
         }
     }
 
-    private void FireBullet()
+    private IEnumerator FireBullet()
     {
         GameObject bullet = pool.Spawn("Bullet");
+
         if (bullet != null)
         {
+            audioSource.PlayOneShot(gunshotSound);
             bullet.transform.position = firePivot.position;
             Bullet bl = bullet.GetComponent<Bullet>();
             bl.SetTarget(target);
+            canShoot = false;
+            yield return new WaitForSeconds(0.2f);
+            canShoot = true;
         }
     }
     #endregion

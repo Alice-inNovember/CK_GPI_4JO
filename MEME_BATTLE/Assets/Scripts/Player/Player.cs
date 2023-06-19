@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
             Vector2 knockBackDirection = (transform.position - collision.transform.position).normalized;
             float _attackPower = SetAttackPower();
 
-            if (_attackPower > 100)
+            if (_attackPower > 80)
             {
                 this.rigid.velocity = new Vector2(0, 0);
                 bm.Respawn();
